@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <form [formGroup]="scores" class="form-control">
+            <div class="form-control">
+                <label for="nic" class="form-control-label">Nic Score</label>
+                <input type="number" formControlName="nicScore" id="nic" class="form-control">
+            </div>
+            <div class="form-control">
+                <label for="jason" class="form-control-label">Jason Score</label>
+                <input type="number" formControlName="jasonScore" id="jason" class="form-control">
+            </div>
+            <div class="form-control">
+                <label for="jBong" class="form-control-label">J-Bong Score</label>
+                <input type="number" formControlName="jBongScore" id="jBong" class="form-control">
+            </div>
+            <div class="form-control">
+                <label for="titus" class="form-control-label">Titus Score</label>
+                <input type="number" formControlName="titusScore" id="titus" class="form-control">
+            </div>
+            <div class="form-control">
+                <button class="btn btn-success" (click)="submit()">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h2>Team Scores</h2>
+    </div>
+    <div class="row">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="cols">Team #</th>
+                    <th scope="cols">Nic</th>
+                    <th scope="cols">Jason</th>
+                    <th scope="cols">J-Bong</th>
+                    <th scope="cols">Titus</th>
+                    <th scope="cols">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of allScores, let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{s.nicScore}}</td>
+                    <td>{{s.jasonScore}}</td>
+                    <td>{{s.jBongScore}}</td>
+                    <td>{{s.titusScore}}</td>
+                    <td>{{s.totalScore}}</td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <button (click)="clearList()" class="btn btn-danger">
+                            Clear List
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
